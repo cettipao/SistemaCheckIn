@@ -41,9 +41,18 @@ public class Terminal {
         vuelos.add(new Vuelo(numVuelo,numPuerta,origen,destino,horaSalida,estado));
     }
     
-    public void addCheckIn(){
-        this.checkins.add(new CheckIn());
+    public void addCheckIn(Pasajero p){
+        this.checkins.add(new CheckIn(p));
     }
+    public Pasajero getPasajeroByDni(String dni){
+        for (Pasajero p: this.pasajeros){
+            if(p.getDni().equalsIgnoreCase(dni)){
+                return p;
+            }
+        }
+        return null;
+    }
+    
     
     
     

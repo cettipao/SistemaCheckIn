@@ -15,13 +15,15 @@ package sistemacheckin;
  * @author cetti
  */
 public class CheckIn {
+    private Pasajero pasajero;
     private boolean internacional;
     private boolean business;
     private String numAsiento;
     private Equipaje equipajes;
     private boolean asistencia;
 
-    public CheckIn() {
+    public CheckIn(Pasajero p) {
+        this.pasajero = p;
     }
 
     public boolean isInternacional() {
