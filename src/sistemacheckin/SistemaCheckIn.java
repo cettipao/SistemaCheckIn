@@ -5,6 +5,8 @@
  */
 package sistemacheckin;
 
+import ventanas.Inicio;
+
 public class SistemaCheckIn {
 
     /**
@@ -12,6 +14,7 @@ public class SistemaCheckIn {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Inicio inicio = new Inicio();
     }
     
 }
