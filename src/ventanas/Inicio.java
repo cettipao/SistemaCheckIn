@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import sistemacheckin.Terminal;
 import sistemacheckin.Vuelo;
@@ -24,7 +26,7 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     private Terminal terminal;
-    public Inicio() throws ParseException {
+    public Inicio() {
         initComponents();
         
         terminal = new Terminal();
@@ -32,7 +34,12 @@ public class Inicio extends javax.swing.JFrame {
         
         
         String sDate1="07:45";  
-        Date date1=new SimpleDateFormat("HH:mm").parse(sDate1); 
+        Date date1 = null; 
+        try {
+            date1 = new SimpleDateFormat("HH:mm").parse(sDate1);
+        } catch (ParseException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         terminal.addVuelo("808", "A23", "Cordoba", "Santiago de Chile", date1, "Boing777", this.terminal.getEnHorario());
         terminal.addPasajero("Paolo", "Cetti", "44739152", this.terminal.getVuelos().get(0));
         
