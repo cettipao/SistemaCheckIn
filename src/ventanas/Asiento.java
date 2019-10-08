@@ -396,9 +396,9 @@ public class Asiento extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel21)
-                        .addComponent(jLabel22))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel23)
                         .addComponent(jLabel24)))
@@ -497,6 +497,10 @@ public class Asiento extends javax.swing.JFrame {
             }
         }
         this.check.setNumAsiento(btnSelected);
+        EquipajeFrame equipajeFrame = new EquipajeFrame(t,p,check);
+        equipajeFrame.show();
+        dispose();
+        
      
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 

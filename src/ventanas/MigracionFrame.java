@@ -26,6 +26,7 @@ public class MigracionFrame extends javax.swing.JFrame {
         this.t = t;
         //Crea CheckIn
         check = new CheckIn(p);
+        check.setBusiness(true);
         
         initComponents();
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nacional", "Internacional"}));
@@ -157,7 +158,8 @@ public class MigracionFrame extends javax.swing.JFrame {
             asiento.show();
         }
         else{
-            
+            EquipajeFrame equipajeFrame = new EquipajeFrame(t,p,check);
+            equipajeFrame.show();
         }
         dispose();
         
