@@ -5,7 +5,14 @@
  */
 package ventanas;
 
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 import sistemacheckin.Terminal;
+import sistemacheckin.Vuelo;
 
 /**
  *
@@ -17,9 +24,19 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     private Terminal terminal;
-    public Inicio() {
+    public Inicio() throws ParseException {
         initComponents();
+        
         terminal = new Terminal();
+        
+        
+        
+        String sDate1="07:45";  
+        Date date1=new SimpleDateFormat("HH:mm").parse(sDate1); 
+        terminal.addVuelo("808", "A23", "Cordoba", "Santiago de Chile", date1, "Boing777", this.terminal.getEnHorario());
+        terminal.addPasajero("Paolo", "Cetti", "44739152", this.terminal.getVuelos().get(0));
+        
+        updateTabla();
     }
 
     /**
@@ -39,7 +56,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(880, 550));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -109,7 +126,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,7 +137,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
 
         pack();
@@ -133,6 +150,17 @@ public class Inicio extends javax.swing.JFrame {
         ingresoDni.show();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void updateTabla(){
+        ArrayList<Vuelo> vuelos = this.terminal.getVuelos();
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        Format formatter = new SimpleDateFormat("HH:mm");
+        for (Vuelo v : vuelos) {
+            String[] datos = {v.getNumVuelo(),v.getOrigen(),v.getDestino(),formatter.format(v.getHoraSalida()),v.getEstado().getEstado(),v.getModelo()}; // Cantidad de columnas de la tabla
+            modelo.addRow(datos);
+
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

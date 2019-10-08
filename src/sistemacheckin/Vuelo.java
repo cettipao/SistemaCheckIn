@@ -17,20 +17,22 @@ import java.util.Date;
 -modeloAvion: String
  * @author cetti
  */
-class Vuelo {
+public class Vuelo {
     private String numVuelo;
     private String numPuerta;
     private String origen;
     private String destino;
     private Date horaSalida;
+    private String modelo;
     private Estado estado;
 
-    public Vuelo(String numVuelo, String numPuerta, String origen, String destino, Date horaSalida, Estado estado) {
+    public Vuelo(String numVuelo, String numPuerta, String origen, String destino, Date horaSalida, String modelo,Estado estado) {
         this.numVuelo = numVuelo;
         this.numPuerta = numPuerta;
         this.origen = origen;
         this.destino = destino;
         this.horaSalida = horaSalida;
+        this.modelo = modelo;
         this.estado = estado;
     }
 
@@ -81,8 +83,14 @@ class Vuelo {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    
-    
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
     @Override
     public String toString() {

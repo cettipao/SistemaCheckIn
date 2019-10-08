@@ -5,7 +5,10 @@
  */
 package ventanas;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import sistemacheckin.Pasajero;
+import sistemacheckin.Terminal;
 
 /**
  *
@@ -17,7 +20,10 @@ public class CheckInData extends javax.swing.JFrame {
      * Creates new form CheckInData
      */
     private Pasajero p;
-    public CheckInData(Pasajero p) {
+    private Terminal t;
+    public CheckInData(Pasajero p, Terminal t) {
+        this.p = p;
+        this.t = t;
         initComponents();
         data();
         
@@ -289,7 +295,9 @@ public class CheckInData extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-
+        IngresoDni ingresoDni = new IngresoDni(this.t);
+        ingresoDni.show();
+        dispose();
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -298,7 +306,18 @@ public class CheckInData extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void data(){
-        this.apellido.setText();
+        this.apellido.setText(this.p.getApellido());
+        this.nombre.setText(this.p.getNombre());
+        this.dni.setText(this.p.getDni());
+        this.origen.setText(this.p.getVuelo().getOrigen());
+        this.destino.setText(this.p.getVuelo().getDestino());
+        this.numVuelo.setText(this.p.getVuelo().getNumVuelo());
+        Format formatter = new SimpleDateFormat("HH:mm");
+        this.horaSalida.setText(formatter.format(this.p.getVuelo().getHoraSalida()));
+        this.modelo.setText(this.p.getVuelo().getModelo());
+        this.estado.setText(this.p.getVuelo().getEstado().getEstado());
+
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellido;

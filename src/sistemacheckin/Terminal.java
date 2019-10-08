@@ -32,13 +32,25 @@ public class Terminal {
         estados.add(new Estado("Demorado"));
         estados.add(new Estado("Reprogramado"));
     }
+    public Estado getEnEspera(){
+        return this.estados.get(0);
+    }
+    public Estado getEnHorario(){
+        return this.estados.get(1);
+    }
+    public Estado getDemorado(){
+        return this.estados.get(2);
+    }
+    public Estado getReprogramado(){
+        return this.estados.get(3);
+    }
     
     public void addPasajero(String nombre, String apellido, String dni, Vuelo vuelo){
         pasajeros.add(new Pasajero(nombre,apellido,dni,vuelo));
     }
     
-    public void addVuelo(String numVuelo, String numPuerta, String origen, String destino, Date horaSalida, Estado estado){
-        vuelos.add(new Vuelo(numVuelo,numPuerta,origen,destino,horaSalida,estado));
+    public void addVuelo(String numVuelo, String numPuerta, String origen, String destino, Date horaSalida, String modelo,Estado estado){
+        vuelos.add(new Vuelo(numVuelo,numPuerta,origen,destino,horaSalida,modelo,estado));
     }
     
     public void addCheckIn(Pasajero p){
@@ -52,6 +64,40 @@ public class Terminal {
         }
         return null;
     }
+
+    public ArrayList<Pasajero> getPasajeros() {
+        return pasajeros;
+    }
+
+    public void setPasajeros(ArrayList<Pasajero> pasajeros) {
+        this.pasajeros = pasajeros;
+    }
+
+    public ArrayList<Vuelo> getVuelos() {
+        return vuelos;
+    }
+
+    public void setVuelos(ArrayList<Vuelo> vuelos) {
+        this.vuelos = vuelos;
+    }
+
+    public ArrayList<Estado> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(ArrayList<Estado> estados) {
+        this.estados = estados;
+    }
+
+    public ArrayList<CheckIn> getCheckins() {
+        return checkins;
+    }
+
+    public void setCheckins(ArrayList<CheckIn> checkins) {
+        this.checkins = checkins;
+    }
+    
+    
     
     
     

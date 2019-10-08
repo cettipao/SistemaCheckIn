@@ -5,6 +5,7 @@
  */
 package ventanas;
 
+import java.awt.event.KeyEvent;
 import sistemacheckin.Terminal;
 
 /**
@@ -63,6 +64,11 @@ public class IngresoDni extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
 
@@ -124,12 +130,7 @@ public class IngresoDni extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        if(this.terminal.getPasajeroByDni(this.jTextField1.getText()) == null){
-            this.lblInc.setText("Ingrese un Dni Valido");
-        }
-        else{
-            CheckInData checkInData = new CheckInData(this.terminal.getPasajeroByDni(this.jTextField1.getText())); 
-        }
+        inicio();
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -137,6 +138,24 @@ public class IngresoDni extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.out.println("ENTER");
+            inicio();
+        }
+        
+    }//GEN-LAST:event_jTextField1KeyPressed
+    private void inicio(){
+        if(this.terminal.getPasajeroByDni(this.jTextField1.getText()) == null){
+            this.lblInc.setText("Ingrese un Dni Valido");
+        }
+        else{
+            CheckInData checkInData = new CheckInData(this.terminal.getPasajeroByDni(this.jTextField1.getText()),this.terminal); 
+            checkInData.show();
+            dispose();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

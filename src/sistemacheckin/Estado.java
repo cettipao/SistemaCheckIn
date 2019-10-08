@@ -9,7 +9,7 @@ package sistemacheckin;
  *
  * @author cetti
  */
-class Estado {
+public class Estado {
     private String estado;
 
     public Estado(String estado) {
