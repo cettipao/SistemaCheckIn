@@ -397,11 +397,11 @@ public class EquipajeFrame extends javax.swing.JFrame {
                         .addComponent(especial1)
                         .addComponent(mascota1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(asistencia)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTipo)))
+                        .addComponent(lblTipo))
+                    .addComponent(asistencia))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -432,12 +432,18 @@ public class EquipajeFrame extends javax.swing.JFrame {
 
     private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
         // TODO add your handling code here:
-        if(this.check.isBusiness()){
-            Asiento asiento = new Asiento(t,p,check);
-            asiento.show();
-        }
-        else{
+        if (this.equipaje.isSelected()) {
+            if (this.comboCant.getSelectedItem().equals("1")) {
+                int peso = Integer.parseInt(this.peso1.getText());
+                this.check.addEquipaje(peso, this.especial1.isSelected(), this.mascota1.isSelected());
 
+            } else if (this.comboCant.getSelectedItem().equals("2")) {
+
+            } else if (this.comboCant.getSelectedItem().equals("3")) {
+
+            } else if (this.comboCant.getSelectedItem().equals("4")) {
+
+            }
         }
         dispose();
 
@@ -610,14 +616,31 @@ public class EquipajeFrame extends javax.swing.JFrame {
 
     private void comboCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCantActionPerformed
         // TODO add your handling code here:
-        switch(this.comboCant.getSelectedItem()){
-            case "1":
-                this.showPeso1();
-                this.hidePeso2();
-                this.hidePeso3();
-                this.hidePeso4();
+        if (this.comboCant.getSelectedItem().equals("1")) {
+            this.showPeso1();
+            this.hidePeso2();
+            this.hidePeso3();
+            this.hidePeso4();
         }
-       
+        else if (this.comboCant.getSelectedItem().equals("2")) {
+            this.showPeso1();
+            this.showPeso2();
+            this.hidePeso3();
+            this.hidePeso4();
+        }
+        else if (this.comboCant.getSelectedItem().equals("3")) {
+            this.showPeso1();
+            this.showPeso2();
+            this.showPeso3();
+            this.hidePeso4();
+        }
+        else if (this.comboCant.getSelectedItem().equals("4")) {
+            this.showPeso1();
+            this.showPeso2();
+            this.showPeso3();
+            this.showPeso4();
+        }
+
     }//GEN-LAST:event_comboCantActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -629,18 +652,9 @@ public class EquipajeFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox especial2;
     private javax.swing.JCheckBox especial3;
     private javax.swing.JCheckBox especial4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JLabel lblCant;
