@@ -14,8 +14,12 @@ public class SistemaCheckIn {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Ticketera ticketera = new Ticketera();
+        ticketera.imprimir();
+        
+        /*
         Inicio inicio = new Inicio();
-        inicio.show();
+        inicio.show();*/
     }
     
 }

@@ -438,13 +438,41 @@ public class EquipajeFrame extends javax.swing.JFrame {
                 this.check.addEquipaje(peso, this.especial1.isSelected(), this.mascota1.isSelected());
 
             } else if (this.comboCant.getSelectedItem().equals("2")) {
+                int peso1 = Integer.parseInt(this.peso1.getText());
+                int peso2 = Integer.parseInt(this.peso2.getText());
+                this.check.addEquipaje(peso1, this.especial1.isSelected(), this.mascota1.isSelected());
+                this.check.addEquipaje(peso2, this.especial2.isSelected(), this.mascota2.isSelected());
 
             } else if (this.comboCant.getSelectedItem().equals("3")) {
+                int peso1 = Integer.parseInt(this.peso1.getText());
+                int peso2 = Integer.parseInt(this.peso2.getText());
+                int peso3 = Integer.parseInt(this.peso3.getText());
+                this.check.addEquipaje(peso1, this.especial1.isSelected(), this.mascota1.isSelected());
+                this.check.addEquipaje(peso2, this.especial2.isSelected(), this.mascota2.isSelected());
+                this.check.addEquipaje(peso3, this.especial3.isSelected(), this.mascota3.isSelected());
 
             } else if (this.comboCant.getSelectedItem().equals("4")) {
+                int peso1 = Integer.parseInt(this.peso1.getText());
+                int peso2 = Integer.parseInt(this.peso2.getText());
+                int peso3 = Integer.parseInt(this.peso3.getText());
+                int peso4 = Integer.parseInt(this.peso4.getText());
+                this.check.addEquipaje(peso1, this.especial1.isSelected(), this.mascota1.isSelected());
+                this.check.addEquipaje(peso2, this.especial2.isSelected(), this.mascota2.isSelected());
+                this.check.addEquipaje(peso3, this.especial3.isSelected(), this.mascota3.isSelected());
+                this.check.addEquipaje(peso4, this.especial4.isSelected(), this.mascota4.isSelected());
 
             }
         }
+        if(this.asistencia.isSelected()){
+            this.check.setAsistencia(true);
+            this.check.setTipoAsistencia((String) this.comboTipo.getSelectedItem());
+        }
+        else{
+            this.check.setAsistencia(false);
+        }
+        
+        ImpresionTicket impresionTicket = new ImpresionTicket(t,p,check);
+        impresionTicket.show();
         dispose();
 
     }//GEN-LAST:event_jToggleButton5ActionPerformed

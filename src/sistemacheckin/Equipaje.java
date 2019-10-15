@@ -9,7 +9,7 @@ package sistemacheckin;
  *
  * @author cetti
  */
-class Equipaje {
+public class Equipaje {
     private int pesoEstimado; 
     private boolean mascota;
     private boolean especial;
