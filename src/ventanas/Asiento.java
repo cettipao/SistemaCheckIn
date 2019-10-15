@@ -30,6 +30,7 @@ public class Asiento extends javax.swing.JFrame {
         this.check = c;
         initComponents();
         asientos();
+        this.setResizable(false);
     }
 
     /**
@@ -456,13 +457,11 @@ public class Asiento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -495,6 +494,9 @@ public class Asiento extends javax.swing.JFrame {
             if (btn.isSelected()){
                 btnSelected = btn.getName();
             }
+        }
+        if(btnSelected==null){
+            return;
         }
         this.check.setNumAsiento(btnSelected);
         EquipajeFrame equipajeFrame = new EquipajeFrame(t,p,check);

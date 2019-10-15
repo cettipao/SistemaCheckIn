@@ -27,6 +27,7 @@ public class EquipajeFrame extends javax.swing.JFrame {
         this.check = c;
         initComponents();
         ocultar();
+        this.setResizable(false);
         
     }
 
@@ -593,9 +594,14 @@ public class EquipajeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.equipaje.isSelected()){
             this.showCantEquipaje();
+            this.showPeso1();
         }
         else{
             this.hideCantEquipaje();
+            this.hidePeso1();
+            this.hidePeso2();
+            this.hidePeso3();
+            this.hidePeso4();
         }
     }//GEN-LAST:event_equipajeActionPerformed
 
