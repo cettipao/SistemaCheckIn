@@ -95,6 +95,7 @@ public class Ticketera {
         }
         try {
             ImageIO.write(image, "png", new File("img/pass/"+p.getApellido() +".png"));
+            
         } catch (IOException ex) {
             Logger.getLogger(Ticketera.class.getName()).log(Level.SEVERE, null, ex);
         }
