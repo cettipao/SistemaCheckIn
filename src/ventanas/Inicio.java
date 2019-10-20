@@ -47,6 +47,13 @@ public class Inicio extends javax.swing.JFrame {
         updateTabla();
     }
 
+    public Inicio(Terminal terminal) {
+        this.terminal = terminal;
+        initComponents();
+        updateTabla();
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

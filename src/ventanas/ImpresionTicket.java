@@ -400,7 +400,7 @@ public class ImpresionTicket extends javax.swing.JFrame {
         System.out.println("Imprimiendo...");
         Ticketera ticketera = new Ticketera();
         ticketera.imprimir(p, check);
-        Inicio inicio = new Inicio();
+        Inicio inicio = new Inicio(this.t);
         inicio.show();
         dispose();
         
