@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sistemacheckin;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.font.TextLayout;
@@ -18,10 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
-/**
- *
- * @author cetti
- */
 public class Ticketera {
 
     public Ticketera() {
@@ -31,6 +24,7 @@ public class Ticketera {
     public void imprimir(Pasajero p, CheckIn c){
         BufferedImage image = null;
         BufferedImage image2 = null;
+        Desktop dt = Desktop.getDesktop();
         try {
             image2 = ImageIO.read(new File("img/bagTagTemplate.png"));
             image = ImageIO.read(new File("img/passTemplate.png"));
@@ -84,10 +78,18 @@ public class Ticketera {
             g2.setFont(font4);
             g2.setPaint(Color.BLACK);
 
-            g2.drawString(p.getVuelo().getDestino().substring(0, 12)+"...", 20, 160);
+            if(p.getVuelo().getDestino().length() < 12){
+                g2.drawString(p.getVuelo().getDestino(),20, 160);
+            }
+            else{
+                g2.drawString(p.getVuelo().getDestino().substring(0, 12)+"...", 20, 160);
+            }
+            
             num++;
             try {
                 ImageIO.write(image2, "png", new File("img/pass/"+p.getApellido()+"BagTag"+num +".png"));
+                File f = new File("img/pass/"+p.getApellido()+"BagTag"+num +".png");
+                dt.open(f);
             } catch (IOException ex) {
                 Logger.getLogger(Ticketera.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -95,6 +97,9 @@ public class Ticketera {
         }
         try {
             ImageIO.write(image, "png", new File("img/pass/"+p.getApellido() +".png"));
+            
+            File f = new File("img/pass/"+p.getApellido() +".png");
+            dt.open(f);
             
         } catch (IOException ex) {
             Logger.getLogger(Ticketera.class.getName()).log(Level.SEVERE, null, ex);

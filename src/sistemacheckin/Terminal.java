@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sistemacheckin;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author cetti
- */
+
 public class Terminal {
     private ArrayList<Pasajero> pasajeros;
     private ArrayList<Vuelo> vuelos;
@@ -43,6 +36,10 @@ public class Terminal {
     }
     public Estado getReprogramado(){
         return this.estados.get(3);
+    }
+    
+    public void removePasajero(Pasajero p){
+        this.pasajeros.remove(p);
     }
     
     public void addPasajero(String nombre, String apellido, String dni, Vuelo vuelo){
