@@ -42,19 +42,19 @@ public class Ticketera {
         TextLayout textLayout;
         //Distintas Escrituras
         g.drawString(p.getNombre() + " " + p.getApellido(), 95, 90);
-        g.drawString(p.getVuelo().getOrigen(), 95, 135);
+        g.drawString(p.getVuelo().getOrigen().getCiudad(), 95, 135);
         g.drawString(p.getVuelo().getNumVuelo(), 255, 135);
         Format formatter1 = new SimpleDateFormat("HH:mm");
         g.drawString(formatter1.format(p.getVuelo().getHoraSalida()), 340, 135);
         Format formatter2 = new SimpleDateFormat("dd-M-yyyy");
         g.drawString(formatter2.format(p.getVuelo().getHoraSalida()), 340, 175);
-        g.drawString(p.getVuelo().getDestino(), 95, 175);
+        g.drawString(p.getVuelo().getDestino().getCiudad(), 95, 175);
         g.drawString(p.getVuelo().getNumPuerta(), 95, 232);
         g.drawString(c.getNumAsiento(), 142, 232);
         
         g.drawString(p.getNombre() + " " + p.getApellido(), 499, 90);
-        g.drawString(p.getVuelo().getOrigen(), 499, 129);
-        g.drawString(p.getVuelo().getDestino(), 499, 169);
+        g.drawString(p.getVuelo().getOrigen().getCiudad(), 499, 129);
+        g.drawString(p.getVuelo().getDestino().getCiudad(), 499, 169);
         font = new Font("Arial", Font.BOLD, 14);
         g.setFont(font);
         g.drawString(p.getVuelo().getNumVuelo(), 499, 215);
@@ -72,17 +72,17 @@ public class Ticketera {
             g2.setFont(font3);
             g2.setPaint(Color.WHITE);
 
-            g2.drawString(p.getVuelo().getDestino().substring(0, 3), 25, 120);
+            g2.drawString(p.getVuelo().getDestino().getCiudad().substring(0, 3), 25, 120);
 
             Font font4 = new Font("Arial", Font.BOLD, 20);
             g2.setFont(font4);
             g2.setPaint(Color.BLACK);
 
-            if(p.getVuelo().getDestino().length() < 12){
-                g2.drawString(p.getVuelo().getDestino(),20, 160);
+            if(p.getVuelo().getDestino().getCiudad().length() < 12){
+                g2.drawString(p.getVuelo().getDestino().getCiudad(),20, 160);
             }
             else{
-                g2.drawString(p.getVuelo().getDestino().substring(0, 12)+"...", 20, 160);
+                g2.drawString(p.getVuelo().getDestino().getCiudad().substring(0, 12)+"...", 20, 160);
             }
             
             num++;

@@ -10,12 +10,17 @@ public class Terminal {
     private ArrayList<Vuelo> vuelos;
     private ArrayList<Estado> estados;
     private ArrayList<CheckIn> checkins;
+    private ArrayList<Ciudad> ciudades;
+    private ArrayList<Modelo> modelos;
+    
 
     public Terminal() {
         pasajeros = new ArrayList<>();
         vuelos = new ArrayList<>();
         estados = new ArrayList<>();
         checkins = new ArrayList<>();
+        ciudades = new ArrayList<>();
+        modelos = new ArrayList<>();
         createEstados();
         
     }
@@ -46,13 +51,39 @@ public class Terminal {
         pasajeros.add(new Pasajero(nombre,apellido,dni,vuelo));
     }
     
-    public void addVuelo(String numVuelo, String numPuerta, String origen, String destino, Date horaSalida, String modelo,Estado estado){
+    public void addVuelo(String numVuelo, String numPuerta, Ciudad origen, Ciudad destino, Date horaSalida, Modelo modelo,Estado estado){
         vuelos.add(new Vuelo(numVuelo,numPuerta,origen,destino,horaSalida,modelo,estado));
     }
     
     public void addCheckIn(Pasajero p){
         this.checkins.add(new CheckIn(p));
     }
+    
+    public void addCiudad(String name){
+        this.ciudades.add(new Ciudad(name));
+    }
+    
+    public void removeCiudad(Ciudad ciudad){
+        this.ciudades.remove(ciudad);
+    }
+    
+    public Ciudad getCiudadByName(String name){
+        for (Ciudad c: this.ciudades){
+            if(c.getCiudad().equalsIgnoreCase(name))
+                return c;
+        }
+        return null;
+    }
+    
+    
+    public Modelo getModeloByName(String name){
+        for (Modelo m: this.modelos){
+            if(m.getModelo().equalsIgnoreCase(name))
+                return m;
+        }
+        return null;
+    }
+    
     public Pasajero getPasajeroByDni(String dni){
         for (Pasajero p: this.pasajeros){
             if(p.getDni().equalsIgnoreCase(dni)){
@@ -62,6 +93,13 @@ public class Terminal {
         return null;
     }
 
+    public void addModelo(String name){
+        this.modelos.add(new Modelo(name));
+    }
+    public void removeModelo(Modelo m){
+        this.modelos.remove(m);
+    }
+    
     public ArrayList<Pasajero> getPasajeros() {
         return pasajeros;
     }
@@ -93,6 +131,25 @@ public class Terminal {
     public void setCheckins(ArrayList<CheckIn> checkins) {
         this.checkins = checkins;
     }
+
+    public ArrayList<Ciudad> getCiudades() {
+        return ciudades;
+    }
+
+    public void setCiudades(ArrayList<Ciudad> ciudades) {
+        this.ciudades = ciudades;
+    }
+
+    public ArrayList<Modelo> getModelos() {
+        return modelos;
+    }
+
+    public void setModelos(ArrayList<Modelo> modelos) {
+        this.modelos = modelos;
+    }
+
+   
+    
     
     
     

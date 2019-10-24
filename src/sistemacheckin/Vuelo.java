@@ -8,14 +8,14 @@ import java.util.Random;
 public class Vuelo {
     private String numVuelo;
     private String numPuerta;
-    private String origen;
-    private String destino;
+    private Ciudad origen;
+    private Ciudad destino;
     private Date horaSalida;
-    private String modelo;
+    private Modelo modelo;
     private Estado estado;
     private ArrayList<Boolean> asientos;
 
-    public Vuelo(String numVuelo, String numPuerta, String origen, String destino, Date horaSalida, String modelo,Estado estado) {
+    public Vuelo(String numVuelo, String numPuerta, Ciudad origen, Ciudad destino, Date horaSalida, Modelo modelo,Estado estado) {
         this.numVuelo = numVuelo;
         this.numPuerta = numPuerta;
         this.origen = origen;
@@ -47,22 +47,6 @@ public class Vuelo {
         this.numPuerta = numPuerta;
     }
 
-    public String getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(String origen) {
-        this.origen = origen;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
     public Date getHoraSalida() {
         return horaSalida;
     }
@@ -79,13 +63,31 @@ public class Vuelo {
         this.estado = estado;
     }
 
-    public String getModelo() {
+    public Ciudad getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(Ciudad origen) {
+        this.origen = origen;
+    }
+
+    public Ciudad getDestino() {
+        return destino;
+    }
+
+    public void setDestino(Ciudad destino) {
+        this.destino = destino;
+    }
+
+    public Modelo getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
+
+    
 
     public ArrayList<Boolean> getAsientos() {
         return asientos;

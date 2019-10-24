@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import sistemacheckin.Ciudad;
 import sistemacheckin.Terminal;
 import sistemacheckin.Vuelo;
 import ventanasAdd.Add;
@@ -32,7 +33,10 @@ public class Inicio extends javax.swing.JFrame {
         } catch (ParseException ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        terminal.addVuelo("808", "A23", "Cordoba", "Santiago de Chile", date1, "Boing777", this.terminal.getEnHorario());
+        this.terminal.addCiudad("Cordoba");
+        this.terminal.addCiudad("Santiago de Chile");
+        this.terminal.addModelo("Boing777");
+        terminal.addVuelo("808", "A23", this.terminal.getCiudadByName("Cordoba"), this.terminal.getCiudadByName("Santiago de Chile"), date1, this.terminal.getModeloByName("Boing777"), this.terminal.getEnHorario());
         terminal.addPasajero("Paolo", "Cetti", "44739152", this.terminal.getVuelos().get(0));
         updateTabla();
     }
@@ -194,7 +198,7 @@ public class Inicio extends javax.swing.JFrame {
         }
         Format formatter = new SimpleDateFormat("HH:mm");
         for (Vuelo v : vuelos) {
-            String[] datos = {v.getNumVuelo(),v.getOrigen(),v.getDestino(),formatter.format(v.getHoraSalida()),v.getEstado().getEstado(),v.getModelo()}; // Cantidad de columnas de la tabla
+            String[] datos = {v.getNumVuelo(),v.getOrigen().getCiudad(),v.getDestino().getCiudad(),formatter.format(v.getHoraSalida()),v.getEstado().getEstado(),v.getModelo().getModelo()}; // Cantidad de columnas de la tabla
             modelo.addRow(datos);
         }
         

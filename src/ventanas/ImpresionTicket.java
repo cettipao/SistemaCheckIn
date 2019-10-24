@@ -417,12 +417,12 @@ public class ImpresionTicket extends javax.swing.JFrame {
         this.apellido.setText(this.p.getApellido());
         this.nombre.setText(this.p.getNombre());
         this.dni.setText(this.p.getDni());
-        this.origen.setText(this.p.getVuelo().getOrigen());
-        this.destino.setText(this.p.getVuelo().getDestino());
+        this.origen.setText(this.p.getVuelo().getOrigen().getCiudad());
+        this.destino.setText(this.p.getVuelo().getDestino().getCiudad());
         this.numVuelo.setText(this.p.getVuelo().getNumVuelo());
         Format formatter = new SimpleDateFormat("HH:mm");
         this.horaSalida.setText(formatter.format(this.p.getVuelo().getHoraSalida()));
-        this.modelo.setText(this.p.getVuelo().getModelo());
+        this.modelo.setText(this.p.getVuelo().getModelo().getModelo());
         this.estado.setText(this.p.getVuelo().getEstado().getEstado());
         if(this.check.isInternacional()){
             this.migracion.setText("Si");
